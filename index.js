@@ -1,16 +1,19 @@
-import express from "express";
-import cors from 'cors';
-import 'dotenv/config.js';
-import { configDB } from "./src/config/configDB.js";
-import taskRouter from "./src/routers/taskrouter.js";
+import React from 'react';
+import ReactDOM from 'react-dom/client';
+import './index.css';
+import App from './App';
+import reportWebVitals from './reportWebVitals';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
-const app = express();
 
-app.use(express.json());
-app.use(cors());
-app.use(taskRouter);
+const root = ReactDOM.createRoot(document.getElementById('root'));
+root.render(
+  <React.StrictMode>
+    <App />
+  </React.StrictMode>
+);
 
-app.listen(process.env.PORT_NO , ()=>{
-    console.log(`server is listening at ${process.env.PORT_NO}`);
-    configDB();
-})
+// If you want to start measuring performance in your app, pass a function
+// to log results (for example: reportWebVitals(console.log))
+// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
+reportWebVitals();
